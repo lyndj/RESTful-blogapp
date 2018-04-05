@@ -8,9 +8,8 @@ var express = require("express"),
 
 
 //APP CONFIG    
-mongoose.connect(process.env.DATABASEURL);
-//mongoose.connect("mongodb://localhost/restful_blog_app");
-//mongoose.connect("mongodb://lyndj:blogapp@ds135179.mlab.com:35179/blogapp");
+var url = process.env.DATABASEURL || "mongodb://localhost/restful_blog_app"
+mongoose.connect(url);
 app.set("view engine", "ejs");
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(express.static("public"));
